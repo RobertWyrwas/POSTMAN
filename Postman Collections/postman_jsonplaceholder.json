@@ -1,0 +1,664 @@
+{
+	"info": {
+		"_postman_id": "47586ed9-e7e6-4db4-a515-895c254b5743",
+		"name": "Jsonplaceholder",
+		"description": "## [https://jsonplaceholder.typicode.com](https://jsonplaceholder.typicode.com/)\n\nStartFragment\n\n# Free fake API for testing and prototyping.\n\nPowered by  \n[JSON Server](https://github.com/typicode/json-server)\n\n- [LowDB](https://github.com/typicode/lowdb). Tested with  \n    [XV](https://github.com/typicode/xv).\n    \n\nServing \\~2 billion requests each month.\n\nEndFragment\n\n<img src=\"https://content.pstmn.io/f4d9f070-0902-42c1-b06e-e47a1c9b0f47/anNvbnBsYWNlaG9sZGVyLnBuZw==\">\n\n[https://www.chaijs.com/guide/styles/](https://www.chaijs.com/guide/styles/)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "learning",
+			"item": [],
+			"_postman_id": "56dd53ae-43cc-4dbb-9a28-50ffc1dbd79b"
+		},
+		{
+			"name": "all the posts",
+			"_postman_id": "251ef1c6-701f-4d17-bcb0-fae61f3bbcf5",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": " {\r\n        \"userId\": 777,\r\n        \"id\": 1,\r\n        \"title\": \"sunt aut facere repellat provident occaecati excepturi optio reprehenderit\",\r\n        \"body\": \"quia et suscipit\\nsuscipit recusandae consequuntur expedita et cum\\nreprehenderit molestiae ut ut quas totam\\nnostrum rerum est autem sunt rem eveniet architecto\"\r\n    },",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{baseURL}}/posts"
+			},
+			"response": []
+		},
+		{
+			"name": "post with specific post ID",
+			"_postman_id": "4ef59b1e-e125-4dba-b059-35fc4f318a32",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{baseURL}}/posts/777"
+			},
+			"response": []
+		},
+		{
+			"name": "posts with specific keywords",
+			"_postman_id": "5942e25f-2f7e-4c7c-980c-c04d8b3c9955",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/posts?title_like=labore",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"posts"
+					],
+					"query": [
+						{
+							"key": "title_like",
+							"value": "labore"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "all the comments",
+			"_postman_id": "9dd6b201-96a4-4400-823b-dc33443955b9",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "{{baseURL}}/comments"
+			},
+			"response": []
+		},
+		{
+			"name": "comments with specific IDs + show limited results",
+			"_postman_id": "44ac832d-1f97-49a4-987a-00704e457e71",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/comments?postId=3&postId=8&_limit=3",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"comments"
+					],
+					"query": [
+						{
+							"key": "postId",
+							"value": "3"
+						},
+						{
+							"key": "postId",
+							"value": "8"
+						},
+						{
+							"key": "_limit",
+							"value": "3"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CHECK if there is postID > 100",
+			"_postman_id": "c7dfd2ae-59f1-4953-9eb8-31dee78b15d0",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/comments?postId=101",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"comments"
+					],
+					"query": [
+						{
+							"key": "postId",
+							"value": "101"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CHECK if there is postID < 1",
+			"_postman_id": "a13e5fc1-b2ec-4c5d-bd5c-8620f8f106c8",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/comments?postId=0",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"comments"
+					],
+					"query": [
+						{
+							"key": "postId",
+							"value": "0"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST  the post",
+			"_postman_id": "e153020c-0b39-4de2-968a-c779083110bb",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"userId\": {{userID}},\r\n    \"id\": 101,\r\n    \"title\": \"{{PostTitle}}\",\r\n    \"body\": \"{{PostBody}}\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{baseURL}}posts"
+			},
+			"response": []
+		},
+		{
+			"name": "UPDATE user's data",
+			"_postman_id": "d60cbed9-000a-4d66-a567-e431f0132e1a",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 1,\r\n    \"name\": \"Leanne Grahamson\",\r\n    \"username\": \"L.G\",\r\n    \"email\": \"Sincere@may.biz\",\r\n    \"address\": {\r\n        \"street\": \"Kulas Dark\",\r\n        \"suite\": \"Apt. 655\",\r\n        \"city\": \"Gwenborough\",\r\n        \"zipcode\": \"92998-3874\",\r\n        \"geo\": {\r\n            \"lat\": \"-37.3159\",\r\n            \"lng\": \"81.1496\"\r\n        }\r\n    }\r\n}       ",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{baseURL}}/users/1"
+			},
+			"response": []
+		},
+		{
+			"name": "DEL specific user",
+			"_postman_id": "ffea2213-8607-4916-8c92-d48cc7ae9e2a",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": "{{baseURL}}/users/1"
+			},
+			"response": []
+		},
+		{
+			"name": "random numbers generator",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "5f231359-5149-49f5-9e72-6507675e2e76",
+						"exec": [
+							"function generatoremail() {\r",
+							"const randomNumbers = Math.random() * (10000000 - 1) + 1;\r",
+							"console.log(randomNumbers);\r",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"_postman_id": "dc7c8b26-e886-46ed-bbf2-ea9ad63467c7",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": "{{baseURL}}/users/2"
+			},
+			"response": []
+		},
+		{
+			"name": "email generator added to global variables",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "5f231359-5149-49f5-9e72-6507675e2e76",
+						"exec": [
+							"function Emailgenerator() {\r",
+							"    const randomNumbers = Math.floor(Math.random() * (10000000 - 1) + 1);\r",
+							"    console.log(\"robert\" + randomNumbers + \"@hireme.com\");\r",
+							"    pm.globals.set(\"randomEmail\", Emailgenerator);\r",
+							"}\r",
+							"\r",
+							"Emailgenerator();"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"_postman_id": "a5730a1f-2a5b-4fe7-9703-3887eb798b28",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{baseURL}}/users/2"
+			},
+			"response": []
+		},
+		{
+			"name": "TEST status 200 (with console log & assertion)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "b93d633d-191c-4941-a86a-cce3e27dfcc2",
+						"exec": [
+							"pm.test(\"Verying status code response\", () => {\r",
+							"    console.log(pm.response)\r",
+							"//pm.response.to.have.status(200);\r",
+							"pm.expect(pm.response.code).to.eql(200)\r",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"_postman_id": "87f3bee9-07e0-43c0-a7b4-7504aa979553",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{baseURL}}/comments"
+			},
+			"response": []
+		},
+		{
+			"name": "TEST response time less than 200",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "b93d633d-191c-4941-a86a-cce3e27dfcc2",
+						"exec": [
+							"pm.test(\"Verying response time\", () => {\r",
+							"    //console.log(pm.response.responseTime)\r",
+							"//pm.response.to.have.status(200);\r",
+							"pm.expect(pm.response.responseTime).to.lessThan(200)\r",
+							"})\r",
+							"pm.test(\"Verying status code response\", () => {\r",
+							"    console.log(pm.response)\r",
+							"//pm.response.to.have.status(200);\r",
+							"pm.expect(pm.response.code).to.eql(200)\r",
+							"pm.expect(pm.response.code).to.be.oneOf([200, 404])\r",
+							"pm.expect(pm.response.code).to.be.a(\"number\");\r",
+							"})\r",
+							"pm.test(\"Is status OK\", () =>{\r",
+							"    pm.expect(pm.response.status).to.eql(\"OK\");\r",
+							"    pm.expect(pm.response.status).to.be.a(\"string\");\r",
+							"})\r",
+							"\r",
+							"pm.test(\"Veryfi post id\", () =>{\r",
+							"    const responseBody = pm.response.json()\r",
+							"    pm.expect(responseBody[0].id).to.eql(1);\r",
+							"})\r",
+							"\r",
+							"pm.test(\"Veryfi lenght of name\", () => {\r",
+							"    const responseBody = pm.response.json();\r",
+							"    pm.expect(responseBody[1].name).to.have.lengthOf(41);\r",
+							"})\r",
+							"\r",
+							"pm.test(\"Verify if specific email contains @\", () => {\r",
+							"    const responseBody = pm.response.json();\r",
+							"    pm.expect(responseBody[1].email).to.include(\"@\");\r",
+							"\r",
+							"})\r",
+							"\r",
+							"pm.test(\"verify if all emails contain @\", () => {\r",
+							"const responseBody = pm.response.json();\r",
+							"responseBody.map(object => {\r",
+							"    pm.expect(object.email).to.include(\"@\");\r",
+							"})\r",
+							"})\r",
+							"\r",
+							"pm.test(\"Verify connection response\", () => {\r",
+							"pm.response.to.have.header(\"Connection\");\r",
+							"})\r",
+							"\r",
+							"pm.test(\"Verify content type value\", () => {\r",
+							"    pm.expect(pm.response.headers.get(\"Content-Type\")).to.eql(\"application/json; charset=utf-8\");\r",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"_postman_id": "2d3d081b-21b4-4dd1-8d6a-bf02a15efe4b",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{baseURL}}/comments"
+			},
+			"response": []
+		},
+		{
+			"name": "CREATE global variables - Tests",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "b5b7b2f7-5b76-438a-80f5-69abab9e0b17",
+						"exec": [
+							"pm.test(\"Set Global variable\", () => {\r",
+							"    pm.globals.set(\"some random variable\", \"the variable\")\r",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"_postman_id": "c40b8c2c-6366-476a-965d-2a0a3bc39958",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": "{{baseURL}}/posts"
+			},
+			"response": []
+		},
+		{
+			"name": "READ global variables",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "46d0d644-2e0e-476a-9dd5-2a27f8876b25",
+						"exec": [
+							"pm.test(\"Global\", () => {\r",
+							"    const expectedTitle = pm.globals.get(\"PostTitle\");\r",
+							"    console.log(\"Test: \" + expectedTitle)\r",
+							"    const resBody = pm.response.json();\r",
+							"    pm.expect(resBody.title).to.eql(expectedTitle)\r",
+							"})\r",
+							"\r",
+							"pm.test(\"Collection\", () => {\r",
+							"    const expectedUrl = pm.collectionVariables.get(\"baseURL\")\r",
+							"    console.log(expectedUrl);\r",
+							"})\r",
+							"\r",
+							"pm.test(\"Environments\", () => {\r",
+							"    const expectedUsername = pm.environment.get(\"username\");\r",
+							"    console.log(expectedUsername);\r",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"_postman_id": "4c3577e2-0fc8-4dee-8121-a3ce35d6da0a",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/posts?title_like=labore",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"posts"
+					],
+					"query": [
+						{
+							"key": "title_like",
+							"value": "labore"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CREATE environement variables - Tests",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "323d50fe-4576-4d40-b7b2-0d32731dcaaa",
+						"exec": [
+							"pm.test(\"Set environement variable\", () => {\r",
+							"    pm.environment.set(\"env variable_A\", \"variable_A value\")\r",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"_postman_id": "70a8d115-8ede-4067-97a9-b1068ad1245c",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": "{{baseURL}}/posts"
+			},
+			"response": []
+		},
+		{
+			"name": "CREATE collection variables - Tests Copy",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "323d50fe-4576-4d40-b7b2-0d32731dcaaa",
+						"exec": [
+							"pm.test(\"Set collection variable\", () => {\r",
+							"    pm.collectionVariables.set(\"collection variable\", \"collection variable value\")\r",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"_postman_id": "ee9fdc57-68dc-4c80-bc88-86aa46ff17ca",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": "{{baseURL}}/posts"
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE collection variables - Tests",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "323d50fe-4576-4d40-b7b2-0d32731dcaaa",
+						"exec": [
+							"pm.test(\"Set collection variable\", () => {\r",
+							"    pm.collectionVariables.unset(\"collection variable\", \"collection variable value\")\r",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"_postman_id": "9db1a0b7-765d-4d8c-ad4a-7973b1ca4026",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": "{{baseURL}}/posts"
+			},
+			"response": []
+		},
+		{
+			"name": "Pre-request Script",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "5f231359-5149-49f5-9e72-6507675e2e76",
+						"exec": [
+							"function showText() {\r",
+							"    console.log(\"I am the pre-script\")\r",
+							"}\r",
+							"showText();"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "3fa2e319-e11e-4b9a-88fe-cbe71f2b7095",
+						"exec": [
+							"function showText() {\r",
+							"    console.log(\"I am the script executed in Tests\")\r",
+							"}\r",
+							"showText();"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"_postman_id": "2c61a493-23d2-4b6d-bc40-de825db1987a",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": "{{baseURL}}/users/1"
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "68f16e0d-4245-4307-bed6-23573bd0fd96",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "91e6451f-2396-4665-873f-855318889c02",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "7e2982a0-0ba3-4c84-bb46-3b9c13e7fcbb",
+			"key": "baseURL",
+			"value": "https://jsonplaceholder.typicode.com",
+			"type": "string"
+		}
+	]
+}
